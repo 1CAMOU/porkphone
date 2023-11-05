@@ -13,8 +13,12 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['Inter Variable', ...defaultTheme.fontFamily.sans],
+                heading: ['Oleo Script', ...defaultTheme.fontFamily.serif]
             },
+            colors: {
+                'primary': '#FF5427'
+            }
         },
     },
 
