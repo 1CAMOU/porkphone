@@ -9,7 +9,7 @@ const mobileMenuOpen = ref(false)
 
 <template>
     <div
-        class="shadow-pink mx-auto flex w-full max-w-5xl items-center justify-between rounded-b-lg bg-white px-4 py-2.5"
+        class="shadow-pink relative mx-auto flex w-full max-w-5xl items-center justify-between rounded-b-lg bg-white px-4 py-2.5"
     >
         <div class="flex items-center">
             <ApplicationLogo />
@@ -83,7 +83,7 @@ const mobileMenuOpen = ref(false)
         </div>
     </transition>
 
-    <div class="mt-8">
+    <div class="mx-auto mt-8 max-w-5xl">
         <slot />
     </div>
 </template>

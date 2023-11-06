@@ -1,11 +1,11 @@
 <script setup>
-import Checkbox from "@/Components/Checkbox.vue";
-import GuestLayout from "@/Layouts/GuestLayout.vue";
-import InputError from "@/Components/InputError.vue";
-import InputLabel from "@/Components/InputLabel.vue";
-import PrimaryButton from "@/Components/PrimaryButton.vue";
-import TextInput from "@/Components/TextInput.vue";
-import { Head, Link, useForm } from "@inertiajs/vue3";
+import Checkbox from '@/Components/Checkbox.vue'
+import GuestLayout from '@/Layouts/GuestLayout.vue'
+import InputError from '@/Components/InputError.vue'
+import InputLabel from '@/Components/InputLabel.vue'
+import PrimaryButton from '@/Components/PrimaryButton.vue'
+import TextInput from '@/Components/TextInput.vue'
+import { Head, Link, useForm } from '@inertiajs/vue3'
 
 defineProps({
     canResetPassword: {
@@ -14,19 +14,19 @@ defineProps({
     status: {
         type: String,
     },
-});
+})
 
 const form = useForm({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
     remember: false,
-});
+})
 
 const submit = () => {
-    form.post(route("login"), {
-        onFinish: () => form.reset("password"),
-    });
-};
+    form.post(route('login'), {
+        onFinish: () => form.reset('password'),
+    })
+}
 </script>
 
 <template>
@@ -37,7 +37,11 @@ const submit = () => {
             {{ status }}
         </div>
 
-        <form @submit.prevent="submit">
+        <h1 class="my-12 text-center font-heading text-4xl text-gray-900">
+            Login to PorkPhone
+        </h1>
+
+        <form @submit.prevent="submit" class="mx-4 max-w-md sm:mx-auto">
             <div>
                 <InputLabel for="email" value="Email" />
 
@@ -46,6 +50,7 @@ const submit = () => {
                     type="email"
                     class="mt-1 block w-full"
                     v-model="form.email"
+                    placeholder="your@email.com"
                     required
                     autofocus
                     autocomplete="username"
@@ -55,13 +60,24 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <InputLabel for="password" value="Password" />
+                <div class="flex justify-between">
+                    <InputLabel for="password" value="Password" />
+
+                    <Link
+                        v-if="canResetPassword"
+                        :href="route('password.request')"
+                        class="rounded-md text-sm text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-300 focus:ring-offset-2"
+                    >
+                        Forgot your password?
+                    </Link>
+                </div>
 
                 <TextInput
                     id="password"
                     type="password"
                     class="mt-1 block w-full"
                     v-model="form.password"
+                    placeholder="************"
                     required
                     autocomplete="current-password"
                 />
@@ -76,19 +92,11 @@ const submit = () => {
                 </label>
             </div>
 
-            <div class="mt-4 flex items-center justify-end">
-                <Link
-                    v-if="canResetPassword"
-                    :href="route('password.request')"
-                    class="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                >
-                    Forgot your password?
-                </Link>
-
+            <div class="mt-4 flex items-center">
                 <PrimaryButton
-                    class="ml-4"
+                    class="w-full justify-center text-center"
                     :class="{ 'opacity-25': form.processing }"
-                    :disabled="form.processing"
+                    :disabled="form.processing || !form.password || !form.email"
                 >
                     Log in
                 </PrimaryButton>
