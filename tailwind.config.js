@@ -1,5 +1,5 @@
-import defaultTheme from 'tailwindcss/defaultTheme';
-import forms from '@tailwindcss/forms';
+import defaultTheme from 'tailwindcss/defaultTheme'
+import forms from '@tailwindcss/forms'
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -14,13 +14,14 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['Inter Variable', ...defaultTheme.fontFamily.sans],
-                heading: ['Oleo Script', ...defaultTheme.fontFamily.serif]
+                heading: ['Oleo Script', ...defaultTheme.fontFamily.serif],
             },
             colors: {
-                'primary': '#FF5427'
-            }
+                primary: '#FF5427',
+                pork: '#FFF8F8',
+            },
         },
     },
 
     plugins: [forms],
-};
+}
