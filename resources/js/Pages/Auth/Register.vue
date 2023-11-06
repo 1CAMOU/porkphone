@@ -37,6 +37,7 @@ const submit = () => {
                     type="text"
                     class="mt-1 block w-full"
                     v-model="form.name"
+                    placeholder="John Doe"
                     required
                     autofocus
                     autocomplete="name"
@@ -53,6 +54,7 @@ const submit = () => {
                     type="email"
                     class="mt-1 block w-full"
                     v-model="form.email"
+                    placeholder="your@email.com"
                     required
                     autocomplete="username"
                 />
@@ -68,6 +70,7 @@ const submit = () => {
                     type="password"
                     class="mt-1 block w-full"
                     v-model="form.password"
+                    placeholder="**********"
                     required
                     autocomplete="new-password"
                 />
@@ -86,6 +89,7 @@ const submit = () => {
                     type="password"
                     class="mt-1 block w-full"
                     v-model="form.password_confirmation"
+                    placeholder="**********"
                     required
                     autocomplete="new-password"
                 />
