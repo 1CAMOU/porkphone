@@ -1,10 +1,10 @@
 <script setup>
-import GuestLayout from "@/Layouts/GuestLayout.vue";
-import InputError from "@/Components/InputError.vue";
-import InputLabel from "@/Components/InputLabel.vue";
-import PrimaryButton from "@/Components/PrimaryButton.vue";
-import TextInput from "@/Components/TextInput.vue";
-import { Head, useForm } from "@inertiajs/vue3";
+import AppLayout from '@/Layouts/AppLayout.vue'
+import InputError from '@/Components/InputError.vue'
+import InputLabel from '@/Components/InputLabel.vue'
+import PrimaryButton from '@/Components/PrimaryButton.vue'
+import TextInput from '@/Components/TextInput.vue'
+import { Head, useForm } from '@inertiajs/vue3'
 
 const props = defineProps({
     email: {
@@ -15,24 +15,24 @@ const props = defineProps({
         type: String,
         required: true,
     },
-});
+})
 
 const form = useForm({
     token: props.token,
     email: props.email,
-    password: "",
-    password_confirmation: "",
-});
+    password: '',
+    password_confirmation: '',
+})
 
 const submit = () => {
-    form.post(route("password.store"), {
-        onFinish: () => form.reset("password", "password_confirmation"),
-    });
-};
+    form.post(route('password.store'), {
+        onFinish: () => form.reset('password', 'password_confirmation'),
+    })
+}
 </script>
 
 <template>
-    <GuestLayout>
+    <AppLayout>
         <Head title="Reset Password" />
 
         <form @submit.prevent="submit">
@@ -97,5 +97,5 @@ const submit = () => {
                 </PrimaryButton>
             </div>
         </form>
-    </GuestLayout>
+    </AppLayout>
 </template>

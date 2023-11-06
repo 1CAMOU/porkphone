@@ -1,12 +1,12 @@
 <script setup>
 import { Head } from '@inertiajs/vue3'
-import GuestLayout from '@/Layouts/GuestLayout.vue'
+import AppLayout from '@/Layouts/AppLayout.vue'
 </script>
 
 <template>
     <Head title="Home" />
 
-    <GuestLayout>
+    <AppLayout>
         <div>home</div>
-    </GuestLayout>
+    </AppLayout>
 </template>

@@ -1,5 +1,5 @@
 <script setup>
-import GuestLayout from '@/Layouts/GuestLayout.vue'
+import AppLayout from '@/Layouts/AppLayout.vue'
 import InputError from '@/Components/InputError.vue'
 import InputLabel from '@/Components/InputLabel.vue'
 import PrimaryButton from '@/Components/PrimaryButton.vue'
@@ -21,7 +21,7 @@ const submit = () => {
 </script>
 
 <template>
-    <GuestLayout>
+    <AppLayout>
         <Head title="Register" />
 
         <h1 class="my-12 text-center font-heading text-4xl text-gray-900">
@@ -123,5 +123,5 @@ const submit = () => {
                 </Link>
             </div>
         </form>
-    </GuestLayout>
+    </AppLayout>
 </template>

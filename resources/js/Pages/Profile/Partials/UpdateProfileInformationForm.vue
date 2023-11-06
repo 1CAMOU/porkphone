@@ -1,9 +1,9 @@
 <script setup>
-import InputError from "@/Components/InputError.vue";
-import InputLabel from "@/Components/InputLabel.vue";
-import PrimaryButton from "@/Components/PrimaryButton.vue";
-import TextInput from "@/Components/TextInput.vue";
-import { Link, useForm, usePage } from "@inertiajs/vue3";
+import InputError from '@/Components/InputError.vue'
+import InputLabel from '@/Components/InputLabel.vue'
+import PrimaryButton from '@/Components/PrimaryButton.vue'
+import TextInput from '@/Components/TextInput.vue'
+import { Link, useForm, usePage } from '@inertiajs/vue3'
 
 defineProps({
     mustVerifyEmail: {
@@ -12,14 +12,14 @@ defineProps({
     status: {
         type: String,
     },
-});
+})
 
-const user = usePage().props.auth.user;
+const user = usePage().props.auth.user
 
 const form = useForm({
     name: user.name,
     email: user.email,
-});
+})
 </script>
 
 <template>
@@ -46,6 +46,7 @@ const form = useForm({
                     type="text"
                     class="mt-1 block w-full"
                     v-model="form.name"
+                    placeholder="John Doe"
                     required
                     autofocus
                     autocomplete="name"
@@ -62,6 +63,7 @@ const form = useForm({
                     type="email"
                     class="mt-1 block w-full"
                     v-model="form.email"
+                    placeholder="your@email.com"
                     required
                     autocomplete="username"
                 />
