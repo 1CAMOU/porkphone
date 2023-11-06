@@ -1,30 +1,34 @@
 <script setup>
-import GuestLayout from "@/Layouts/GuestLayout.vue";
-import InputError from "@/Components/InputError.vue";
-import InputLabel from "@/Components/InputLabel.vue";
-import PrimaryButton from "@/Components/PrimaryButton.vue";
-import TextInput from "@/Components/TextInput.vue";
-import { Head, Link, useForm } from "@inertiajs/vue3";
+import GuestLayout from '@/Layouts/GuestLayout.vue'
+import InputError from '@/Components/InputError.vue'
+import InputLabel from '@/Components/InputLabel.vue'
+import PrimaryButton from '@/Components/PrimaryButton.vue'
+import TextInput from '@/Components/TextInput.vue'
+import { Head, Link, useForm } from '@inertiajs/vue3'
 
 const form = useForm({
-    name: "",
-    email: "",
-    password: "",
-    password_confirmation: "",
-});
+    name: '',
+    email: '',
+    password: '',
+    password_confirmation: '',
+})
 
 const submit = () => {
-    form.post(route("register"), {
-        onFinish: () => form.reset("password", "password_confirmation"),
-    });
-};
+    form.post(route('register'), {
+        onFinish: () => form.reset('password', 'password_confirmation'),
+    })
+}
 </script>
 
 <template>
     <GuestLayout>
         <Head title="Register" />
 
-        <form @submit.prevent="submit">
+        <h1 class="my-12 text-center font-heading text-4xl text-gray-900">
+            Create a PorkPhone Account
+        </h1>
+
+        <form @submit.prevent="submit" class="mx-4 max-w-md sm:mx-auto">
             <div>
                 <InputLabel for="name" value="Name" />
 
@@ -92,21 +96,27 @@ const submit = () => {
                 />
             </div>
 
-            <div class="mt-4 flex items-center justify-end">
-                <Link
-                    :href="route('login')"
-                    class="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                >
-                    Already registered?
-                </Link>
-
+            <div class="mt-4 flex flex-col space-y-3 text-center">
                 <PrimaryButton
-                    class="ml-4"
+                    class="w-full justify-center text-center"
                     :class="{ 'opacity-25': form.processing }"
-                    :disabled="form.processing"
+                    :disabled="
+                        form.processing ||
+                        !form.email ||
+                        !form.name ||
+                        !form.password ||
+                        !form.password_confirmation
+                    "
                 >
                     Register
                 </PrimaryButton>
+
+                <Link
+                    :href="route('login')"
+                    class="rounded-md text-sm text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-300 focus:ring-offset-2"
+                >
+                    Already registered?
+                </Link>
             </div>
         </form>
     </GuestLayout>
