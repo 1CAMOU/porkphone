@@ -14,6 +14,10 @@ const props = defineProps({
     active: {
         type: Boolean,
     },
+    activeLine: {
+        type: Boolean,
+        default: true,
+    },
 })
 
 const classes = computed(() =>
@@ -33,7 +37,7 @@ const classes = computed(() =>
         <slot />
 
         <div
-            v-if="active"
+            v-if="active && activeLine"
             class="absolute left-1/2 hidden h-3 w-0.5 -translate-x-1/2 translate-y-[2.35rem] cursor-default rounded-full bg-primary sm:block"
         />
     </Link>
