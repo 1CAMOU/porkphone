@@ -15,7 +15,7 @@ const mobileMenuOpen = ref(false)
             class="shadow-pink relative mx-auto flex w-full max-w-5xl items-center justify-between rounded-b-lg bg-white px-4 py-2.5"
         >
             <div class="flex items-center">
-                <ApplicationLogo />
+                <ApplicationLogo width="w-12" />
                 <span
                     class="ml-3 text-lg font-semibold tracking-tight text-gray-900"
                 >
@@ -161,10 +161,10 @@ const mobileMenuOpen = ref(false)
         </div>
 
         <footer
-            class="mx-auto mt-auto flex w-full max-w-5xl flex-col justify-between bg-pork px-4 py-8 sm:flex-row"
+            class="relative -z-10 mx-auto mt-auto flex w-full max-w-5xl flex-col justify-between bg-pork px-4 py-8 sm:flex-row"
         >
             <div class="flex flex-col items-center gap-4 sm:items-start">
-                <ApplicationLogo class="h-10 w-10" />
+                <ApplicationLogo width="w-10" />
                 <p class="text-sm text-gray-900">
                     &copy; {{ new Date().getFullYear() }} PorkPhone, LLC. All
                     rights reserved.

@@ -38,7 +38,7 @@ const classes = computed(() =>
 
         <div
             v-if="active && activeLine"
-            class="absolute left-1/2 hidden h-3 w-0.5 -translate-x-1/2 translate-y-[2.35rem] cursor-default rounded-full bg-primary sm:block"
+            class="absolute left-1/2 hidden h-3 w-0.5 -translate-x-1/2 translate-y-[1.85rem] cursor-default rounded-full bg-primary sm:block"
         />
     </Link>
 </template>
