@@ -1,6 +1,7 @@
 <script setup>
 import { Head } from '@inertiajs/vue3'
 import AppLayout from '@/Layouts/AppLayout.vue'
+import PrimaryButton from '@/Components/PrimaryButton.vue'
 </script>
 
 <template>
@@ -16,12 +17,12 @@ import AppLayout from '@/Layouts/AppLayout.vue'
             Rent the Most Sizzlin' Digits in Town
         </h2>
 
-        <div class="flex flex-col space-y-16 py-12">
+        <div class="flex flex-col space-y-20 py-12">
             <section
                 class="mx-4 flex flex-col items-center justify-between sm:flex-row lg:mx-0"
             >
                 <div
-                    class="order-2 max-w-xl text-center lg:order-none lg:text-left"
+                    class="order-2 max-w-xl text-center sm:order-none sm:text-left"
                 >
                     <h2 class="font-heading text-3xl text-gray-900">
                         Why PorkPhone?
@@ -37,7 +38,7 @@ import AppLayout from '@/Layouts/AppLayout.vue'
                 </div>
 
                 <img
-                    class="mb-8 w-32 sm:w-48 lg:mb-0"
+                    class="mb-8 w-32 sm:mb-0 lg:w-48"
                     src="/images/pig-thinks.png"
                     alt="Porkphone Pig Thinking"
                 />
@@ -250,6 +251,38 @@ import AppLayout from '@/Layouts/AppLayout.vue'
                         </p>
                     </div>
                 </div>
+            </section>
+
+            <section
+                class="shadow-pink mx-4 flex flex-col items-center justify-between rounded-lg bg-white p-12 sm:flex-row lg:mx-0"
+            >
+                <div
+                    class="order-2 max-w-xl text-center sm:order-none sm:text-left"
+                >
+                    <h2 class="font-heading text-3xl text-gray-900">
+                        Join the Porkphone Family Today
+                    </h2>
+                    <p class="mt-2 text-sm text-neutral-500">
+                        Ready to snort with laughter every time you answer a
+                        sms? It's time to join the Porkphone family! Sign up now
+                        and get a taste of what it's like to hog the line.
+                        <br />
+                        <br />
+                        <i>
+                            Remember, when you're with Porkphone, you're always
+                            in good company – even if it's a little swiney.
+                        </i>
+                    </p>
+                    <PrimaryButton class="mt-8" :href="route('register')">
+                        Get Started Today
+                    </PrimaryButton>
+                </div>
+
+                <img
+                    class="mb-8 w-32 sm:w-48 lg:mb-0"
+                    src="/favicon.png"
+                    alt="Porkphone Pig Logo"
+                />
             </section>
         </div>
     </AppLayout>

@@ -43,9 +43,9 @@ const mobileMenuOpen = ref(false)
                     Login
                 </NavLink>
 
-                <PrimaryButton :href="route('register')"
-                    >Register</PrimaryButton
-                >
+                <PrimaryButton :href="route('register')">
+                    Register
+                </PrimaryButton>
             </div>
 
             <div v-else class="hidden items-center space-x-3 sm:flex">
