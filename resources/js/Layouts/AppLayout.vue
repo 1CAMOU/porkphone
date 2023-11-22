@@ -12,7 +12,7 @@ const mobileMenuOpen = ref(false)
 <template>
     <div class="flex min-h-screen w-full flex-col">
         <div
-            class="shadow-pink relative mx-auto flex w-full max-w-5xl items-center justify-between rounded-b-lg bg-white px-4 py-2.5"
+            class="shadow-pink fixed mx-auto flex w-full max-w-5xl items-center justify-between rounded-b-lg bg-white px-4 py-2.5 sm:relative"
         >
             <div class="flex items-center">
                 <ApplicationLogo width="w-12" />
@@ -136,7 +136,7 @@ const mobileMenuOpen = ref(false)
         >
             <div
                 v-if="mobileMenuOpen"
-                class="fixed block flex w-full flex-col border-t border-gray-100 bg-white px-4 py-2.5 sm:hidden"
+                class="fixed top-[4.4rem] flex w-full flex-col border-t border-gray-100 bg-white px-4 py-2.5 sm:hidden"
             >
                 <NavLink
                     :href="route('home')"
@@ -171,7 +171,9 @@ const mobileMenuOpen = ref(false)
                 </p>
             </div>
 
-            <div class="mx-auto mt-4 flex flex-wrap sm:m-0 sm:flex-col">
+            <div
+                class="mx-auto mt-4 flex flex-wrap justify-center sm:m-0 sm:flex-col"
+            >
                 <NavLink
                     :href="route('home')"
                     :active="route().current('home')"
