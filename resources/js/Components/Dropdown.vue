@@ -1,47 +1,47 @@
 <script setup>
-import { computed, onMounted, onUnmounted, ref } from "vue";
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 
 const props = defineProps({
     align: {
         type: String,
-        default: "right",
+        default: 'right',
     },
     width: {
         type: String,
-        default: "48",
+        default: '48',
     },
     contentClasses: {
         type: String,
-        default: "py-1 bg-white",
+        default: 'py-1 bg-white',
     },
-});
+})
 
 const closeOnEscape = (e) => {
-    if (open.value && e.key === "Escape") {
-        open.value = false;
+    if (open.value && e.key === 'Escape') {
+        open.value = false
     }
-};
+}
 
-onMounted(() => document.addEventListener("keydown", closeOnEscape));
-onUnmounted(() => document.removeEventListener("keydown", closeOnEscape));
+onMounted(() => document.addEventListener('keydown', closeOnEscape))
+onUnmounted(() => document.removeEventListener('keydown', closeOnEscape))
 
 const widthClass = computed(() => {
     return {
-        48: "w-48",
-    }[props.width.toString()];
-});
+        48: 'w-48',
+    }[props.width.toString()]
+})
 
 const alignmentClasses = computed(() => {
-    if (props.align === "left") {
-        return "origin-top-left left-0";
-    } else if (props.align === "right") {
-        return "origin-top-right right-0";
+    if (props.align === 'left') {
+        return 'origin-top-left left-0'
+    } else if (props.align === 'right') {
+        return 'origin-top-right right-0'
     } else {
-        return "origin-top";
+        return 'origin-top'
     }
-});
+})
 
-const open = ref(false);
+const open = ref(false)
 </script>
 
 <template>
@@ -54,7 +54,7 @@ const open = ref(false);
         <div
             v-show="open"
             class="fixed inset-0 z-40"
-            @click="open = false"
+            @click.self="open = false"
         ></div>
 
         <Transition
@@ -70,7 +70,7 @@ const open = ref(false);
                 class="absolute z-50 mt-2 rounded-md shadow-lg"
                 :class="[widthClass, alignmentClasses]"
                 style="display: none"
-                @click="open = false"
+                @click.self="open = false"
             >
                 <div
                     class="rounded-md ring-1 ring-black ring-opacity-5"
