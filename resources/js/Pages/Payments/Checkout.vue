@@ -139,7 +139,7 @@ const amount = ref(20)
                         </Link>
 
                         <Link
-                            :href="route('checkout.stripe', { amount })"
+                            :href="route('checkout.coinbase', { amount })"
                             method="POST"
                             as="button"
                             class="flex w-48 items-center justify-center rounded-md bg-[#011082] px-6 py-2.5 text-white opacity-90 transition hover:opacity-100"
