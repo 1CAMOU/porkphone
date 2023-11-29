@@ -29,7 +29,7 @@ const amount = ref(20)
                 <div class="mt-8">
                     <h2 class="text-lg">Top up your Balance</h2>
 
-                    <div class="mt-6 flex gap-3">
+                    <div class="mt-6 flex flex-wrap gap-3 md:flex-nowrap">
                         <button
                             class="rounded-md border border-gray-300 bg-white px-8 py-3.5 transition focus:border-primary focus:outline-none focus:ring-orange-300 active:translate-y-0 active:scale-95"
                             :class="
