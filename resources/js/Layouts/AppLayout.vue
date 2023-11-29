@@ -32,8 +32,10 @@ const mobileMenuOpen = ref(false)
                     Home
                 </NavLink>
 
-                <NavLink>How it Works</NavLink>
-                <NavLink>Numbers</NavLink>
+                <NavLink :href="route('home') + '/#how-it-works'">
+                    How it Works
+                </NavLink>
+                <NavLink> Numbers </NavLink>
             </div>
 
             <div v-if="!$page.props.auth.user" class="hidden space-x-3 sm:flex">

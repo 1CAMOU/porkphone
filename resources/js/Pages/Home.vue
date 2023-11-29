@@ -183,7 +183,10 @@ import PrimaryButton from '@/Components/PrimaryButton.vue'
                 </div>
             </section>
 
-            <section class="mx-4 mt-6 flex flex-col rounded-lg md:mx-0">
+            <section
+                id="how-it-works"
+                class="mx-4 mt-6 flex flex-col rounded-lg md:mx-0"
+            >
                 <h2 class="text-center font-heading text-3xl">How it works</h2>
 
                 <div class="mx-auto mt-12 flex items-center">
