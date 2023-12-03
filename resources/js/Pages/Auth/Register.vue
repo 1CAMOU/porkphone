@@ -18,6 +18,10 @@ const submit = () => {
         onFinish: () => form.reset('password', 'password_confirmation'),
     })
 }
+
+const changeEmailField = () => {
+    form.email = form.email.toLowerCase()
+}
 </script>
 
 <template>

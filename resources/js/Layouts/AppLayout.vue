@@ -24,7 +24,7 @@ const mobileMenuOpen = ref(false)
                 </span>
             </div>
 
-            <div class="hidden space-x-3 sm:flex">
+            <div class="hidden space-x-5 sm:flex">
                 <NavLink
                     :href="route('home')"
                     :active="route().current('home')"
@@ -38,7 +38,7 @@ const mobileMenuOpen = ref(false)
                 <NavLink> Numbers </NavLink>
             </div>
 
-            <div v-if="!$page.props.auth.user" class="hidden space-x-3 sm:flex">
+            <div v-if="!$page.props.auth.user" class="hidden space-x-5 sm:flex">
                 <NavLink
                     :href="route('login')"
                     :active="route().current('login')"
@@ -51,7 +51,7 @@ const mobileMenuOpen = ref(false)
                 </PrimaryButton>
             </div>
 
-            <div v-else class="hidden items-center space-x-3 sm:flex">
+            <div v-else class="hidden items-center space-x-5 sm:flex">
                 <Dropdown>
                     <template #trigger>
                         <button
@@ -199,7 +199,10 @@ const mobileMenuOpen = ref(false)
 
                 <NavLink>How it Works</NavLink>
                 <NavLink>Numbers</NavLink>
-                <div class="mt-1 flex flex-col border-t border-gray-100">
+                <div
+                    v-if="$page.props.auth.user"
+                    class="mt-1 flex flex-col border-t border-gray-100"
+                >
                     <p class="mx-4 my-2 flex items-center text-sm">
                         Balance:
                         <span class="ml-1 font-semibold">
@@ -247,9 +250,9 @@ const mobileMenuOpen = ref(false)
                         </Link>
                     </p>
                     <NavLink :href="route('profile.edit')">Profile</NavLink>
-                    <NavLink :href="route('logout')" method="POST"
-                        >Logout</NavLink
-                    >
+                    <NavLink :href="route('logout')" method="POST">
+                        Logout
+                    </NavLink>
                 </div>
             </div>
         </transition>
@@ -259,7 +262,7 @@ const mobileMenuOpen = ref(false)
         </div>
 
         <footer
-            class="relative -z-10 mx-auto mt-auto flex w-full max-w-5xl flex-col justify-between bg-pork px-4 py-8 sm:flex-row"
+            class="relative mx-auto mt-auto flex w-full max-w-5xl flex-col justify-between bg-pork px-4 py-8 sm:flex-row"
         >
             <div class="flex flex-col items-center gap-4 sm:items-start">
                 <ApplicationLogo width="w-10" />
@@ -280,9 +283,20 @@ const mobileMenuOpen = ref(false)
                     Home
                 </NavLink>
 
-                <NavLink>Privacy Policy</NavLink>
-                <NavLink>Terms of Service</NavLink>
-                <NavLink>Contact</NavLink>
+                <NavLink
+                    :href="route('privacy-policy')"
+                    :active="route().current('privacy-policy')"
+                    :active-line="false"
+                >
+                    Privacy Policy
+                </NavLink>
+                <NavLink
+                    :href="route('terms-of-service')"
+                    :active="route().current('terms-of-service')"
+                    :active-line="false"
+                >
+                    Terms of Service
+                </NavLink>
             </div>
         </footer>
     </div>

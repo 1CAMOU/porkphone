@@ -1,7 +1,8 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 
-defineProps({
+const props = defineProps({
+    type: String,
     modelValue: {
         type: String,
         required: true,
@@ -11,7 +12,7 @@ defineProps({
     },
 })
 
-defineEmits(['update:modelValue'])
+const emit = defineEmits(['update:modelValue'])
 
 const input = ref(null)
 
@@ -22,6 +23,14 @@ onMounted(() => {
 })
 
 defineExpose({ focus: () => input.value.focus() })
+
+const handleInput = (event) => {
+    if (props.type === 'email') {
+        event.target.value = event.target.value.toLowerCase()
+    }
+
+    emit('update:modelValue', event.target.value)
+}
 </script>
 
 <template>
@@ -29,7 +38,8 @@ defineExpose({ focus: () => input.value.focus() })
         class="rounded-md border-gray-300 text-sm placeholder-gray-400 shadow-sm focus:border-primary focus:ring-orange-300"
         :value="modelValue"
         :placeholder="placeholder"
-        @input="$emit('update:modelValue', $event.target.value)"
+        :type="type"
+        @input="(event) => handleInput(event)"
         ref="input"
     />
 </template>

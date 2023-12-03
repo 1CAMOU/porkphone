@@ -10,6 +10,14 @@ Route::get('/', function () {
     return inertia('Home');
 })->name('home');
 
+Route::get('/privacy-policy', function () {
+    return inertia('PrivacyPolicy');
+})->name('privacy-policy');
+
+Route::get('/terms-of-service', function () {
+    return inertia('TermsOfService');
+})->name('terms-of-service');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
